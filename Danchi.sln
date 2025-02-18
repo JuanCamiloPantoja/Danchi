@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Danchi", "Danchi\Danchi.csproj", "{D7BD0180-FDC5-46AA-96F0-AFC074EB3F3F}"
 EndProject
@@ -18,7 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentación", "Documenta
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Script", "Script", "{2EB1B90A-1A4B-468A-A1C5-D3F66F5CBEBB}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\Danche\BD Danchi.sql = ..\..\Danche\BD Danchi.sql
+		Script\Danchi BD.sql = Script\Danchi BD.sql
 	EndProjectSection
 EndProject
 Global
@@ -37,5 +37,8 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D7BD0180-FDC5-46AA-96F0-AFC074EB3F3F} = {9458042B-D562-4301-8C2A-91267C31367E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {39D503F8-5953-463A-A3FF-DA7FE47D4086}
 	EndGlobalSection
 EndGlobal
