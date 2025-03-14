@@ -19,6 +19,7 @@ namespace Danchi
             services.AddScoped<IChatInternoRepository, ChatInternoRepository>();
             services.AddScoped<INotificacionEmergenciasRepository, NotificacionEmergenciasRepository>();
             services.AddScoped<IResidenteRepository, ResidenteRepository>();
+            services.AddScoped<IRegistroRepository, RegistroRepository>();
             services.AddScoped<ISoporteTecnicoRepository, SoporteTecnicoRepository>();
             services.AddScoped<ISugerenciasReporteErroresRepository, SugerenciasReporteErroresRepository>();
 

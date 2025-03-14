@@ -16,6 +16,7 @@ namespace Danchi.Context
         public DbSet<ChatInterno> chatInterno { get; set; }
         public DbSet<NotificacionEmergencias> notificacionEmergencias { get; set; }
         public DbSet<Residente> residente { get; set; }
+        public DbSet<Registro> Registro { get; set; }
         public DbSet<SoporteTecnico> soporteTecnico { get; set; }
         public DbSet<SugerenciasReporteErrores> sugerenciasReporteErrores { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -78,6 +79,17 @@ namespace Danchi.Context
             modelBuilder.Entity<Residente>().Property(u => u.CorreoElectronico).HasColumnName("CorreoElectronico");
             modelBuilder.Entity<Residente>().Property(u => u.CelularResidente).HasColumnName("CelularResidente");
             modelBuilder.Entity<Residente>().Property(u => u.Nombre).HasColumnName("Nombre");
+
+            modelBuilder.Entity<Registro>().ToTable("Registro");
+            modelBuilder.Entity<Registro>().HasKey(u => u.IDRegistro);
+            modelBuilder.Entity<Registro>().Property(u => u.IDRegistro).HasColumnName("IDRegistro").ValueGeneratedOnAdd();
+            modelBuilder.Entity<Registro>().Property(u => u.IdResidente).HasColumnName("IdResidente");
+            modelBuilder.Entity<Registro>().Property(u => u.Nombre).HasColumnName("Nombre");
+            modelBuilder.Entity<Registro>().Property(u => u.Apellido).HasColumnName("Apellido");
+            modelBuilder.Entity<Registro>().Property(u => u.Correo).HasColumnName("Correo");
+            modelBuilder.Entity<Registro>().Property(u => u.Telefono).HasColumnName("Telefono");
+            modelBuilder.Entity<Registro>().Property(u => u.Apartamento).HasColumnName("Apartamento");
+            modelBuilder.Entity<Registro>().Property(u => u.Contraseña).HasColumnName("Contraseña");
 
             modelBuilder.Entity<SoporteTecnico>().ToTable("SoporteTecnico");
             modelBuilder.Entity<SoporteTecnico>().HasKey(u => u.IdSoporte);

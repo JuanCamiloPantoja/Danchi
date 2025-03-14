@@ -2,9 +2,9 @@
 using Danchi.Repositories.Interfaces;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using System.Runtime.CompilerServices;
 using Danchi.Context;
-using System;
+using System;using System.Runtime.CompilerServices;
+
 
 namespace Danchi.Repositories
 {

@@ -24,6 +24,17 @@ Create table Login(
 Usuario nvarchar(50),
 Contraseña nvarchar(50));
 
+Create Table Registro(
+IDRegistro int primary key,
+IdResidente int constraint FK_Registro_Residente foreign key references Residente(IdResidente),
+Nombre nvarchar(100),
+Apellido nvarchar(100),
+Correo nvarchar(100),
+Telefono decimal,
+Apartamento nvarchar(4),
+Contraseña nvarchar(100)
+);
+
 create table ChatInterno(
 IdChat int primary key,
 IdAdministrador int constraint FK_Chat_Administrador foreign key references Administrador(IdAdministrador),
@@ -100,6 +111,12 @@ VALUES
     (1, 1, 'Sugerencia', 'Me gustaría sugerir una nueva función.', 'Plataforma web', '2024-08-03 12:30:00'),
     (2, 2, 'Error', 'Hay un problema al cargar la página.', 'Plataforma web', '2024-08-04 09:15:00'),
     (3, 3, 'Sugerencia', 'Sería útil tener una aplicación móvil.', 'Plataforma móvil', '2024-08-05 16:20:00');
+
+INSERT INTO Registro (IDRegistro, IdResidente, Nombre, Apellido, Correo, Telefono, Apartamento, Contraseña)
+VALUES
+    (1, 1,  'Pedro ', 'Puto',  'uwuadmin@gmail.com', 3223718902, '101C', 'putito87' ),
+	(2, 2,  'Lulu ', 'Mark',  'uwuadmin@gmail.com', 3223778902, '102C', 'putito88' ),
+	(3, 3,  'Oua ', 'Liz',  'uwuadmin@gmail.com', 3224518902, '103C', 'putito89' );
 
 INSERT INTO NotificacionEmergencias (IdEmergencia, Descripcion, AccionesRecomendadas, EstadoEmergencia, TipoEmergencia, Lugar, FechaYHora)
 VALUES
