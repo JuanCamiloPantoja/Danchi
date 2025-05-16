@@ -9,7 +9,8 @@ namespace Danchi.Context
         public Danchi_Context(DbContextOptions options) : base(options)
         {
         }
-
+        public DbSet<FormularioAsistencia> FormularioAsistencia { get; set; }
+        public DbSet<Reservas> Reservas { get; set; }
         public DbSet<Administrador> administrador { get; set; }
         public DbSet<AnuncioAcontecimientos> anuncioAcontecimientos { get; set; }
         public DbSet<AutenticacionUsuario> autenticacionUsuario { get; set; }
@@ -27,6 +28,25 @@ namespace Danchi.Context
 
         private void EntityConfuguration(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<FormularioAsistencia>().ToTable("FormularioAsistencia");
+            modelBuilder.Entity<FormularioAsistencia>().HasKey(u => u.IdFormulario);
+            modelBuilder.Entity<FormularioAsistencia>().Property(u => u.IdFormulario).HasColumnName("IdFormulario").ValueGeneratedOnAdd();
+            modelBuilder.Entity<FormularioAsistencia>().Property(u => u.IdResidente).HasColumnName("IdResidente");
+            modelBuilder.Entity<FormularioAsistencia>().Property(u => u.NombreResidente).HasColumnName("NombreResidente");
+            modelBuilder.Entity<FormularioAsistencia>().Property(u => u.CorreoResidente).HasColumnName("CorreoResidente");
+            modelBuilder.Entity<FormularioAsistencia>().Property(u => u.TelefonoResidente).HasColumnName("TelefonoResidente");
+            modelBuilder.Entity<FormularioAsistencia>().Property(u => u.NumApartResidente).HasColumnName("NumApartResidente");
+            modelBuilder.Entity<FormularioAsistencia>().Property(u => u.Fecha).HasColumnName("Fecha");
+
+            modelBuilder.Entity<Reservas>().ToTable("Reservas");
+            modelBuilder.Entity<Reservas>().HasKey(u => u.IdReservas);
+            modelBuilder.Entity<Reservas>().Property(u => u.IdReservas).HasColumnName("IdReservas").ValueGeneratedOnAdd();
+            modelBuilder.Entity<Reservas>().Property(u => u.IdResidente).HasColumnName("IdResidente");
+            modelBuilder.Entity<Reservas>().Property(u => u.FechaReserva).HasColumnName("FechaReserva");
+            modelBuilder.Entity<Reservas>().Property(u => u.HoraReserva).HasColumnName("HoraReserva");
+            modelBuilder.Entity<Reservas>().Property(u => u.NumInvitados).HasColumnName("NumInvitados");
+            modelBuilder.Entity<Reservas>().Property(u => u.Estado).HasColumnName("Estado");
+
             modelBuilder.Entity<Administrador>().ToTable("Administrador");
             modelBuilder.Entity<Administrador>().HasKey(u => u.IdAdministrador);
             modelBuilder.Entity<Administrador>().Property(u => u.IdAdministrador).HasColumnName("IdAdministrador").ValueGeneratedOnAdd();

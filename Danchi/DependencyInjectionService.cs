@@ -22,6 +22,8 @@ namespace Danchi
             services.AddScoped<IRegistroRepository, RegistroRepository>();
             services.AddScoped<ISoporteTecnicoRepository, SoporteTecnicoRepository>();
             services.AddScoped<ISugerenciasReporteErroresRepository, SugerenciasReporteErroresRepository>();
+            services.AddScoped<IReservasRepository, ReservasRepository>();
+            services.AddScoped<IFormularioAsistenciaRepositoy, FormularioAsistenciaRepository>();
 
             return services;
         }

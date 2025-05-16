@@ -82,6 +82,25 @@ Descripcion nvarchar(100),
 Prioridad nvarchar(50)
 );
 
+create table FormularioAsistencia(
+IdFormulario int primary key,
+IdResidente int constraint FK_FormularioAsistencia_Residente foreign key references Residente(IdResidente),
+NombreResidente nvarchar(100),
+CorreoResidente nvarchar(100),
+TelefonoResidente nvarchar(100),
+NumApartResidente nvarchar(100),
+Fecha Datetime
+);
+
+create table Reservas(
+IdReservas int primary key,
+IdResidente int constraint FK_Reserva_Residente foreign key references Residente(IdResidente),
+FechaReserva Date,
+HoraReserva time,
+NumInvitados int,
+Estado varchar (100)
+);
+
 
 INSERT INTO Administrador (IdAdministrador, Nombre, CelularAdministrador, CorreoElectronicoAd)
 VALUES
@@ -136,3 +155,16 @@ VALUES
     (2, 2, 2, 'Plataforma web', 'Error en la base de datos al guardar cambios en el perfil de usuario.', 'Alta'),   
     (3, 3, 1, 'Servicio en línea', 'Interrupción de servicio intermitente que afecta la conexión con la plataforma en línea.', 'Alta'),
     (4, 1, 2, 'Sistema de autenticación', 'Error al autenticar al usuario debido a un fallo en el sistema de autenticación.', 'Media');
+
+INSERT INTO FormularioAsistencia (IdFormulario, IdResidente, NombreResidente, CorreoResidente, TelefonoResidente, NumApartResidente, Fecha)
+VALUES
+(1, 1, 'Pedro', 'pedro.martinez@admin.com', '3102345678', '102C', '2025-04-20 10:30:00'),
+(2, 2, 'Anabell', 'ana.rodriguez@admin.com', '3118765432', '103C', '2025-04-21 14:00:00'),
+(3, 3, 'Camile', 'uwu@gmail.com', '3223567894', '104C', '2025-04-22 09:15:00');
+
+
+INSERT INTO Reservas (IdReservas, IdResidente, FechaReserva, HoraReserva, NumInvitados, Estado)
+VALUES
+(1, 1, '2025-04-25', '18:00:00', 10, 'Pendiente'),
+(2, 2, '2025-04-26', '15:00:00', 5, 'Aprobada'),
+(3, 3, '2025-04-27', '20:00:00', 20, 'Rechazada');
